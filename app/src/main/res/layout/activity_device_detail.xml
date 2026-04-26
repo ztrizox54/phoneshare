@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_darkest">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/bg_dark"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="6dp">
+
+        <ImageButton
+            android:id="@+id/btnDevDetailBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:tint="@color/text_bright"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDevDetailLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_bright"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="Device"/>
+
+            <TextView
+                android:id="@+id/tvDevDetailMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDevDetailSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:background="@drawable/btn_primary"/>
+    </LinearLayout>
+
+    <!-- Tab strip -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bg_dark"
+        android:paddingHorizontal="6dp"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:id="@+id/tabPerms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Permissions"
+            android:textColor="@color/text"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_tab"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tabActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Activity"
+            android:textColor="@color/text"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_tab"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tabNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Note"
+            android:textColor="@color/text"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_tab"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <!-- Tab content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ===== PERMISSIONS PANE ===== -->
+        <ScrollView
+            android:id="@+id/panePerms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LABEL"
+                    android:textColor="@color/text_dim"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"/>
+                <EditText
+                    android:id="@+id/edDevLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/text_bright"
+                    android:textSize="14sp"
+                    android:fontFamily="monospace"
+                    android:singleLine="true"
+                    android:inputType="text"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="ROLE"
+                    android:textColor="@color/text_dim"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"/>
+                <RadioGroup
+                    android:id="@+id/rgDevRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp">
+                    <RadioButton
+                        android:id="@+id/rbDevAdmin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Admin (full access, no approvals)"
+                        android:textColor="@color/text"
+                        android:textSize="13sp"/>
+                    <RadioButton
+                        android:id="@+id/rbDevGuest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Guest (restricted to allowed folders)"
+                        android:textColor="@color/text"
+                        android:textSize="13sp"/>
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="ALLOWED ROOTS (one per line)"
+                    android:textColor="@color/text_dim"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"/>
+                <EditText
+                    android:id="@+id/edDevAllowed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/text_bright"
+                    android:textSize="13sp"
+                    android:fontFamily="monospace"
+                    android:gravity="top|start"
+                    android:hint="/Download/Shared\n/Music"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:scrollbars="vertical"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="REQUIRE APPROVAL FOR…"
+                    android:textColor="@color/text_dim"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"/>
+
+                <CheckBox
+                    android:id="@+id/cbDevReqDl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Downloads"
+                    android:textColor="@color/text"
+                    android:textSize="13sp"/>
+                <CheckBox
+                    android:id="@+id/cbDevReqUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Uploads"
+                    android:textColor="@color/text"
+                    android:textSize="13sp"/>
+                <CheckBox
+                    android:id="@+id/cbDevReqDel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deletions (recommended)"
+                    android:textColor="@color/text"
+                    android:textSize="13sp"/>
+                <CheckBox
+                    android:id="@+id/cbDevReqRen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Renames"
+                    android:textColor="@color/text"
+                    android:textSize="13sp"/>
+                <CheckBox
+                    android:id="@+id/cbDevReqMov"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Moves (recommended)"
+                    android:textColor="@color/text"
+                    android:textSize="13sp"/>
+                <CheckBox
+                    android:id="@+id/cbDevReqRead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Read file content (preview)"
+                    android:textColor="@color/text"
+                    android:textSize="13sp"/>
+                <CheckBox
+                    android:id="@+id/cbDevReqMkdir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Create folders"
+                    android:textColor="@color/text"
+                    android:textSize="13sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="20dp"
+                    android:background="@color/border"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDevDisconnect"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Disconnect"
+                        android:textColor="@color/text"
+                        android:background="@drawable/btn_secondary"
+                        android:textSize="12sp"
+                        android:minHeight="0dp"
+                        android:paddingVertical="10dp"/>
+
+                    <Button
+                        android:id="@+id/btnDevForget"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Forget"
+                        android:textColor="@color/red"
+                        android:background="@drawable/btn_danger"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:minHeight="0dp"
+                        android:paddingVertical="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ===== ACTIVITY PANE ===== -->
+        <ScrollView
+            android:id="@+id/paneActivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvDevActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:textIsSelectable="true"
+                android:lineSpacingExtra="2dp"/>
+        </ScrollView>
+
+        <!-- ===== NOTE PANE ===== -->
+        <LinearLayout
+            android:id="@+id/paneNote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SHARED NOTE"
+                android:textColor="@color/text_dim"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"/>
+
+            <TextView
+                android:id="@+id/tvDevNoteMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/text_dim"
+                android:textSize="11sp"
+                android:fontFamily="monospace"/>
+
+            <TextView
+                android:id="@+id/tvDevNoteBody"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:padding="12dp"
+                android:background="@drawable/bg_terminal"
+                android:textColor="@color/text"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:textIsSelectable="true"/>
+
+            <Button
+                android:id="@+id/btnDevOpenNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Open notepad"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="@drawable/btn_primary"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

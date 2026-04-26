@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_darkest">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- ===== Default GUEST permissions ===== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DEFAULT GUEST PERMISSIONS"
+            android:textColor="@color/yellow"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_dim"
+            android:textSize="11sp"
+            android:text="Applied the first time a NEW device is approved as guest. Editing here doesn't affect already-remembered devices."/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="ALLOWED ROOTS (one per line)"
+            android:textColor="@color/text_dim"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"/>
+        <EditText
+            android:id="@+id/edDefGuestRoots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_bright"
+            android:textSize="13sp"
+            android:fontFamily="monospace"
+            android:gravity="top|start"
+            android:hint="/Download/Shared\n/Music"
+            android:inputType="textMultiLine"
+            android:minLines="3"/>
+
+        <CheckBox android:id="@+id/cbDefGuestRead"  android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval to read file content" android:textColor="@color/text" android:textSize="13sp" android:layout_marginTop="6dp"/>
+        <CheckBox android:id="@+id/cbDefGuestDl"    android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for downloads" android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefGuestUp"    android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for uploads"   android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefGuestMkdir" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval to create folders" android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefGuestDel"   android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for deletions" android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefGuestRen"   android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for renames"   android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefGuestMov"   android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for moves"     android:textColor="@color/text" android:textSize="13sp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+              android:background="@color/border" android:layout_marginVertical="20dp"/>
+
+        <!-- ===== Default ADMIN permissions ===== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DEFAULT ADMIN PERMISSIONS"
+            android:textColor="@color/accent"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_dim"
+            android:textSize="11sp"
+            android:text="Admins always get full access (/) — only the approval requirements are configurable."/>
+
+        <CheckBox android:id="@+id/cbDefAdminRead"  android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval to read file content" android:textColor="@color/text" android:textSize="13sp" android:layout_marginTop="10dp"/>
+        <CheckBox android:id="@+id/cbDefAdminDl"    android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for downloads" android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefAdminUp"    android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for uploads"   android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefAdminMkdir" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval to create folders" android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefAdminDel"   android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for deletions" android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefAdminRen"   android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for renames"   android:textColor="@color/text" android:textSize="13sp"/>
+        <CheckBox android:id="@+id/cbDefAdminMov"   android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Require approval for moves"     android:textColor="@color/text" android:textSize="13sp"/>
+
+        <Button
+            android:id="@+id/btnSavePermissions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Save permissions"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/btn_primary"/>
+    </LinearLayout>
+</ScrollView>

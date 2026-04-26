@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <!-- Block both cloud backups and device-to-device transfer of session data,
+         remembered devices, notes — they may contain LAN auth tokens and
+         user-typed shared notes (passwords etc). -->
+    <cloud-backup>
+        <exclude domain="sharedpref" path="phoneshare_state.xml"/>
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="phoneshare_state.xml"/>
+    </device-transfer>
+</data-extraction-rules>

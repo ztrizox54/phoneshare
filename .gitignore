@@ -1,26 +1,17 @@
-# Android Studio / IntelliJ
 *.iml
-.idea/
 .gradle/
-build/
-captures/
-.externalNativeBuild/
-.cxx/
-
-# Machine-specific SDK location
-local.properties
-
-# OS junk
+/local.properties
+.idea/
 .DS_Store
-Thumbs.db
+build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+gradle/wrapper/gradle-wrapper.jar
 
-# Scratch / logs
-*.log
-*.bak
+# AI tooling
+.claude/
+CLAUDE.md
 TODO.txt
 build_command.txt
-
-# Local tool state
-.claude/
-.vscode/
-CLAUDE.md

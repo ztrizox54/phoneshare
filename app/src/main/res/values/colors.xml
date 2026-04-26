@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_darkest">#0E0E12</color>
+    <color name="bg_dark">#14141A</color>
+    <color name="bg_panel">#1A1A24</color>
+    <color name="bg_input">#111118</color>
+    <color name="border">#2A2A3A</color>
+    <color name="border_bright">#3A3A55</color>
+    <color name="text">#D4D4E0</color>
+    <color name="text_dim">#8888A0</color>
+    <color name="text_bright">#EEEEF5</color>
+    <color name="accent">#6C8CFF</color>
+    <color name="green">#5DCA7A</color>
+    <color name="yellow">#E0C060</color>
+    <color name="red">#E05A6A</color>
+    <color name="orange">#E0905A</color>
+
+    <color name="status_running_bg">#1B3A26</color>
+    <color name="status_running_border">#5DCA7A</color>
+    <color name="status_stopped_bg">#3A1B22</color>
+    <color name="status_stopped_border">#E05A6A</color>
+</resources>

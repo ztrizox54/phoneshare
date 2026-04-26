@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.PhoneShare" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryDark">@color/bg_darkest</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/bg_darkest</item>
+        <item name="android:statusBarColor">@color/bg_darkest</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+</resources>

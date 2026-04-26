@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhoneShare</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="splash" id="splash">
+    <div class="splash-inner">
+        <div class="splash-logo">
+            <span class="splash-prompt">&gt;_</span>
+            <span class="splash-name">PhoneShare</span>
+        </div>
+        <div class="splash-spinner" aria-hidden="true">
+            <div class="splash-spinner-ring"></div>
+        </div>
+        <div class="splash-status" id="splashStatus">Connecting…</div>
+    </div>
+</div>
+
+<div class="app" id="app" hidden>
+    <header class="topbar">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+            <span class="brand-app">PhoneShare</span>
+            <span class="brand-sep">\</span>
+            <span class="brand-device" id="brandDevice">…</span>
+        </div>
+        <div class="topbar-right">
+            <span class="me-pill" id="mePill" title="Your device" hidden>
+                <span class="me-role" id="meRole"></span>
+                <span class="me-label" id="meLabel"></span>
+            </span>
+            <span class="ws-indicator" id="wsIndicator" title="Live updates">
+                <span class="dot"></span><span id="wsLabel">connecting…</span>
+            </span>
+        </div>
+    </header>
+
+    <div class="shell">
+        <aside class="sidebar" id="sidebar">
+            <a class="nav-item" data-page="files"    href="#/files/">
+                <span class="nav-ic">📁</span><span>Files</span>
+            </a>
+            <a class="nav-item" data-page="notes"    href="#/notes">
+                <span class="nav-ic">📝</span><span>Shared notes</span>
+                <span class="nav-badge" id="notesBadge" hidden></span>
+            </a>
+            <a class="nav-item" data-page="settings" href="#/settings">
+                <span class="nav-ic">⚙</span><span>Settings</span>
+            </a>
+        </aside>
+
+        <main class="content" id="content">
+
+            <!-- ========== FILES PAGE ========== -->
+            <section class="page page-files" data-page="files" hidden>
+                <nav class="breadcrumb-bar">
+                    <div class="breadcrumb" id="breadcrumb">/</div>
+                    <div class="bar-actions">
+                        <button class="btn btn-sm" id="refreshBtn" title="Refresh">↻ Refresh</button>
+                        <button class="btn btn-sm btn-primary" id="uploadBtn" title="Upload files">⬆ Upload</button>
+                        <button class="btn btn-sm" id="mkdirBtn" title="Create folder">＋ Folder</button>
+                        <input type="file" id="filePicker" hidden multiple>
+                    </div>
+                </nav>
+
+                <div class="search-bar">
+                    <input type="search" id="searchInput" class="search-input"
+                           placeholder="Search files (and inside .zip / text)…">
+                    <label class="toggle-pill" title="Also search inside .zip / text files">
+                        <input type="checkbox" id="searchDeep">
+                        <span class="toggle-pill-track"><span class="toggle-pill-thumb"></span></span>
+                        <span class="toggle-pill-label">deep</span>
+                    </label>
+                    <select id="sortSelect" class="sort-select" title="Sort">
+                        <option value="name-asc">Name ↑</option>
+                        <option value="name-desc">Name ↓</option>
+                        <option value="date-desc">Newest first</option>
+                        <option value="date-asc">Oldest first</option>
+                        <option value="size-desc">Largest first</option>
+                        <option value="size-asc">Smallest first</option>
+                    </select>
+                </div>
+
+
+                <div class="file-table-wrap" id="fileTableWrap">
+                    <table class="file-table">
+                        <thead>
+                            <tr>
+                                <th class="col-name">Name</th>
+                                <th class="col-size">Size</th>
+                                <th class="col-date">Modified</th>
+                                <th class="col-act"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="fileBody">
+                            <tr><td colspan="4" class="empty">Loading…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ========== SHARED NOTES PAGE ========== -->
+            <section class="page page-notes" data-page="notes" hidden>
+                <div class="page-header">
+                    <h2>Shared notes</h2>
+                    <p class="page-sub">A scratchpad shared between this device and the phone owner. Both sides can read &amp; edit.</p>
+                </div>
+                <div class="notes-toolbar">
+                    <span class="notes-status" id="notesStatus">—</span>
+                    <button class="btn btn-sm" id="notesSaveBtn">Save</button>
+                </div>
+                <textarea id="notesEditor" class="notes-editor"
+                    placeholder="Type anything: a Wi-Fi password, a download list, a quick note for the phone owner…"></textarea>
+            </section>
+
+            <!-- ========== SETTINGS PAGE ========== -->
+            <section class="page page-settings" data-page="settings" hidden>
+                <div class="page-header">
+                    <h2>Settings</h2>
+                    <p class="page-sub">Per-session preferences for this browser.</p>
+                </div>
+                <div class="settings-card">
+                    <div class="setting-row">
+                        <label class="setting-label">UI density</label>
+                        <select id="uiDensity" class="sort-select">
+                            <option value="comfortable">Comfortable</option>
+                            <option value="compact">Compact</option>
+                        </select>
+                    </div>
+                    <div class="setting-row">
+                        <label class="setting-label">Auto-refresh logs</label>
+                        <label class="switch"><input type="checkbox" id="autoRefreshLogs" checked><span></span></label>
+                    </div>
+                    <div class="setting-row">
+                        <button class="btn btn-danger" id="signOutBtn">Sign out (clear session)</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="upload-stack" id="uploadStack"></div>
+
+    <div class="banner-stack" id="bannerStack"></div>
+
+    <div class="view-overlay" id="viewOverlay" hidden>
+        <div class="view-modal">
+            <div class="view-head">
+                <span class="view-title" id="viewTitle">file.txt</span>
+                <span class="view-meta" id="viewMeta"></span>
+                <button class="link-btn" id="viewClose">close</button>
+            </div>
+            <pre class="view-body" id="viewBody"></pre>
+        </div>
+    </div>
+
+    <div class="drop-overlay" id="dropOverlay" hidden>
+        <div class="drop-overlay-inner">
+            <div class="drop-icon">⬆</div>
+            <div class="drop-msg">Drop to upload to the current folder</div>
+        </div>
+    </div>
+
+    <div class="auth-overlay" id="authOverlay" hidden>
+        <div class="auth-modal">
+            <div class="auth-title">Authorize this device</div>
+            <div class="auth-sub">Scan the QR with your phone, or type the code into the PhoneShare app.</div>
+            <div class="auth-qr-wrap">
+                <img id="authQr" alt="QR code" class="auth-qr">
+            </div>
+            <div class="auth-code-label">Manual code</div>
+            <div class="auth-code" id="authCode">······</div>
+            <div class="auth-status" id="authStatus">Waiting for approval…</div>
+        </div>
+    </div>
+
+    <div class="approval-toast" id="approvalToast" hidden>
+        <div class="approval-toast-inner">
+            <div class="approval-spinner"></div>
+            <div>
+                <div class="approval-title" id="approvalTitle">Waiting for approval…</div>
+                <div class="approval-sub" id="approvalSub"></div>
+            </div>
+            <button class="link-btn" id="approvalCancel">cancel</button>
+        </div>
+    </div>
+</div>
+
+<template id="uploadCardTemplate">
+    <div class="upload-card">
+        <div class="uc-head">
+            <span class="uc-name"></span>
+            <span class="uc-pct">0%</span>
+        </div>
+        <div class="uc-bar"><div class="uc-fill"></div></div>
+        <div class="uc-meta">
+            <span class="uc-stats"></span>
+            <button class="uc-cancel link-btn">cancel</button>
+        </div>
+    </div>
+</template>
+
+<script src="/app.js"></script>
+</body>
+</html>

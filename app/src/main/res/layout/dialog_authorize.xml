@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvAuthDeviceLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_bright"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"/>
+
+    <TextView
+        android:id="@+id/tvAuthCodeLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/text_dim"
+        android:textSize="12sp"
+        android:fontFamily="monospace"/>
+
+    <TextView
+        android:id="@+id/tvAuthKnownHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/accent"
+        android:textSize="12sp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="ROLE"
+        android:textColor="@color/text_dim"
+        android:textSize="11sp"
+        android:letterSpacing="0.1"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/rgAuthRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rbAuthAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Admin — full access to all files, no approvals needed"
+            android:textColor="@color/text"
+            android:textSize="13sp"/>
+
+        <RadioButton
+            android:id="@+id/rbAuthGuest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guest — restricted, asks me to approve downloads &amp; uploads"
+            android:textColor="@color/text"
+            android:textSize="13sp"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Access valid for 12 hours · device settings remembered"
+        android:textColor="@color/text_dim"
+        android:textSize="11sp"/>
+</LinearLayout>
